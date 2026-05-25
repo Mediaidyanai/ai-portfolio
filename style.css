@@ -29,7 +29,7 @@
   --grad-card:  linear-gradient(90deg, #c084fc, #f9a8d4);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
@@ -58,6 +58,13 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
+  transition: height 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav.nav-scrolled {
+  height: 50px;
+  box-shadow: 0 2px 16px rgba(168, 85, 247, 0.12);
+  transition: height 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-logo {
@@ -100,6 +107,12 @@ img { max-width: 100%; display: block; }
 
 .nav-links a:hover::after,
 .nav-links a.active::after { transform: scaleX(1); }
+
+.nav-links a:focus-visible {
+  outline: 2px solid #9333ea;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 
 /* Hamburger — mobile only */
 .nav-toggle {
@@ -149,6 +162,7 @@ img { max-width: 100%; display: block; }
   background: radial-gradient(circle, rgba(249, 168, 212, 0.38) 0%, transparent 68%);
   bottom: -160px; right: -120px;
   animation: blob-float 7s ease-in-out infinite;
+  will-change: transform;
 }
 
 .hero-blobs::after {
@@ -159,6 +173,7 @@ img { max-width: 100%; display: block; }
   background: radial-gradient(circle, rgba(192, 132, 252, 0.28) 0%, transparent 68%);
   top: 40px; left: -100px;
   animation: blob-float 9s ease-in-out infinite reverse;
+  will-change: transform;
 }
 
 @keyframes blob-float {
@@ -248,7 +263,10 @@ img { max-width: 100%; display: block; }
     0 0 0 6px rgba(192, 132, 252, 0.08),
     0 12px 48px rgba(168, 85, 247, 0.28),
     0 4px 16px rgba(168, 85, 247, 0.12);
+  outline: 4px solid rgba(192, 132, 252, 0.12);
+  outline-offset: 6px;
   animation: img-float 5s ease-in-out infinite;
+  will-change: transform;
 }
 
 .game-frame img { width: 100%; height: auto; display: block; }
@@ -318,6 +336,13 @@ img { max-width: 100%; display: block; }
 }
 
 .btn-primary:active { transform: translateY(-1px); }
+
+.btn-primary:focus-visible,
+.btn-outline:focus-visible,
+.btn-ghost:focus-visible {
+  outline: 2px solid #9333ea;
+  outline-offset: 3px;
+}
 
 .btn-outline {
   display: inline-flex;
@@ -449,13 +474,14 @@ img { max-width: 100%; display: block; }
 .card-featured .card-img-wrap {
   aspect-ratio: auto;
   height: 100%;
+  min-height: 420px;
 }
 
 .card-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: top center;
   display: block;
   transition: transform 0.45s ease;
 }
@@ -482,6 +508,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
   gap: 1.1rem;
 }
 
@@ -525,12 +552,13 @@ img { max-width: 100%; display: block; }
   border: 1px solid rgba(192, 132, 252, 0.35);
   color: var(--primary-dk);
   background: #f3e8ff;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 .card-tags li:hover {
   background: var(--primary-lt);
   border-color: var(--primary);
+  transform: scale(1.05);
 }
 
 .card-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
@@ -603,14 +631,15 @@ img { max-width: 100%; display: block; }
 
 .process-num {
   font-family: 'Nunito', sans-serif;
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 900;
   line-height: 1;
+  letter-spacing: -0.03em;
   background: var(--grad-title);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  opacity: 0.18;
+  opacity: 0.22;
   margin-bottom: 0.9rem;
 }
 
@@ -650,7 +679,7 @@ img { max-width: 100%; display: block; }
   font-size: 0.8rem;
   color: var(--text-m);
   border-top: 1px solid var(--border);
-  background: var(--bg);
+  background: linear-gradient(to top, #f3e8ff, #fdf6ff);
 }
 
 .footer-link {
@@ -747,4 +776,11 @@ img { max-width: 100%; display: block; }
 
   .hero-blobs::before { width: 320px; height: 320px; }
   .hero-blobs::after  { width: 240px; height: 240px; }
+
+  .card-body { padding: 1.5rem 1.5rem 1.8rem; }
+}
+
+/* Large screen: slightly larger game frame */
+@media (min-width: 1100px) {
+  .game-frame { width: min(380px, 42vw); }
 }
