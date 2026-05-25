@@ -809,6 +809,10 @@ img { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   .game-frame,
   .hero-blobs::before,
+  .hero-blobs::after { will-change: auto; }
+
+  .game-frame,
+  .hero-blobs::before,
   .hero-blobs::after,
   .hero-badge-dot { animation: none; }
 

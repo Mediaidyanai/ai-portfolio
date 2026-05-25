@@ -5,7 +5,6 @@
    - Smooth anchor scroll with nav-height guard
    - Active nav highlight
    - Hamburger toggle
-   - Back-to-top body class (show-top)
    ========================================================= */
 
 const NAV_HEIGHT = 70; // px — matches html { scroll-padding-top } in CSS
@@ -55,7 +54,7 @@ const NAV_HEIGHT = 70; // px — matches html { scroll-padding-top } in CSS
 })();
 
 // ---------------------------------------------------------
-// 2. NAV SCROLL SHRINK  +  5. BACK-TO-TOP BODY CLASS
+// 2. NAV SCROLL SHRINK
 //    Throttled scroll handler — single rAF loop.
 // ---------------------------------------------------------
 (function initScrollEffects() {
