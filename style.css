@@ -735,6 +735,24 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    Responsive
    ============================================================ */
+/* Tablet: 2-column works grid (YAML: works_grid.tablet = "2カラム") */
+@media (max-width: 960px) and (min-width: 601px) {
+  .works-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card-featured {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+  }
+
+  .card-featured .card-img-wrap {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: unset;
+  }
+}
+
 @media (max-width: 960px) {
   .hero-inner {
     flex-direction: column;
@@ -751,21 +769,10 @@ img { max-width: 100%; display: block; }
     margin: 0 auto;
   }
 
-  .works-grid { grid-template-columns: 1fr; }
-
-  .card-featured {
-    grid-column: auto;
-    grid-template-columns: 1fr;
-  }
-
-  .card-featured .card-img-wrap {
-    aspect-ratio: 16 / 9;
-    height: auto;
-  }
-
   .process-grid { grid-template-columns: 1fr; }
 }
 
+/* Mobile: single column */
 @media (max-width: 600px) {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
@@ -776,6 +783,19 @@ img { max-width: 100%; display: block; }
 
   .hero-blobs::before { width: 320px; height: 320px; }
   .hero-blobs::after  { width: 240px; height: 240px; }
+
+  .works-grid { grid-template-columns: 1fr; }
+
+  .card-featured {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .card-featured .card-img-wrap {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: unset;
+  }
 
   .card-body { padding: 1.5rem 1.5rem 1.8rem; }
 }
