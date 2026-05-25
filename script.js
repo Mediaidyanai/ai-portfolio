@@ -8,7 +8,7 @@
    - Back-to-top body class (show-top)
    ========================================================= */
 
-const NAV_HEIGHT = 58; // px — matches CSS nav height
+const NAV_HEIGHT = 70; // px — matches html { scroll-padding-top } in CSS
 
 // ---------------------------------------------------------
 // 1. STAGGERED FADE-IN PER SECTION
@@ -72,9 +72,6 @@ const NAV_HEIGHT = 58; // px — matches CSS nav height
       if (nav) {
         nav.classList.toggle('nav-scrolled', y > 20);
       }
-
-      // Back-to-top class on body
-      document.body.classList.toggle('show-top', y > 400);
 
       ticking = false;
     });
@@ -151,6 +148,7 @@ const NAV_HEIGHT = 58; // px — matches CSS nav height
   toggle.addEventListener('click', () => {
     const isOpen = navLinksEl.classList.toggle('nav-open');
     toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
   });
 
   // Close menu on link click

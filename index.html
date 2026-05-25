@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
 
+  <meta name="theme-color" content="#c084fc" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -62,7 +63,10 @@
 
       <div class="hero-visual">
         <div class="game-frame">
-          <img src="./image/kumapuyo.png" alt="クマぷよ風パズルゲームのスクリーンショット" width="360" />
+          <picture>
+            <source srcset="./image/kumapuyo.webp" type="image/webp" />
+            <img src="./image/kumapuyo.png" alt="クマぷよ風パズルゲームのスクリーンショット" width="360" height="512" fetchpriority="high" />
+          </picture>
           <div class="game-frame-shine" aria-hidden="true"></div>
         </div>
         <div class="hero-badge">
@@ -85,11 +89,14 @@
         <!-- FEATURED: クマぷよ -->
         <article class="card card-featured fade-in">
           <div class="card-img-wrap">
-            <img
-              src="./image/kumapuyo.png"
-              alt="クマぷよ風パズルゲーム — カラフルなクマキャラが落ちてくる画面"
-              loading="lazy"
-            />
+            <picture>
+              <source srcset="./image/kumapuyo.webp" type="image/webp" />
+              <img
+                src="./image/kumapuyo.png"
+                alt="クマぷよ風パズルゲーム — カラフルなクマキャラが落ちてくる画面"
+                loading="lazy"
+              />
+            </picture>
             <span class="card-badge">Featured</span>
           </div>
           <div class="card-body">

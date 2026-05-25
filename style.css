@@ -64,7 +64,6 @@ img { max-width: 100%; display: block; }
 .nav.nav-scrolled {
   height: 50px;
   box-shadow: 0 2px 16px rgba(168, 85, 247, 0.12);
-  transition: height 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-logo {
@@ -140,6 +139,7 @@ img { max-width: 100%; display: block; }
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   padding-top: 58px;
@@ -551,7 +551,7 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.04em;
   border: 1px solid rgba(192, 132, 252, 0.35);
   color: var(--primary-dk);
-  background: #f3e8ff;
+  background: var(--bg-alt);
   transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
 
@@ -679,7 +679,7 @@ img { max-width: 100%; display: block; }
   font-size: 0.8rem;
   color: var(--text-m);
   border-top: 1px solid var(--border);
-  background: linear-gradient(to top, #f3e8ff, #fdf6ff);
+  background: linear-gradient(to top, var(--bg-alt), var(--bg));
 }
 
 .footer-link {
@@ -803,4 +803,19 @@ img { max-width: 100%; display: block; }
 /* Large screen: slightly larger game frame */
 @media (min-width: 1100px) {
   .game-frame { width: min(380px, 42vw); }
+}
+
+/* Respect user motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .game-frame,
+  .hero-blobs::before,
+  .hero-blobs::after,
+  .hero-badge-dot { animation: none; }
+
+  .fade-in {
+    transition: opacity 0.3s ease;
+    transform: none;
+  }
+
+  .fade-in.visible { opacity: 1; }
 }
